@@ -1,6 +1,6 @@
 # submodule that will let us make a decision tree
 from sklearn import tree
-
+from sklearn.naive_bayes import GaussianNB
 #[height, weight, shoe size]
 X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
      [190, 90, 47], [175, 64, 39],
@@ -9,11 +9,12 @@ X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
 Y = ['male', 'male', 'female', 'female', 'male', 'male', 'female', 'female',
      'female', 'male', 'male']
 
-classifier = tree.DecisionTreeClassifier()
-# train it on our data set
-classifier = classifier.fit(X,Y)
+classifier = GaussianNB()
 
-prediction = classifier.predict([[190, 70, 43], [158, 54, 30]])
+# train it on our data set
+classifier = classifier.fit(X,Y);
+
+prediction = classifier.predict([[190, 70, 43], [158, 54, 30]]);
 
 print(prediction)
 
